@@ -1,0 +1,270 @@
+/*Web design with HTML 5\chapter7\flexbox7 page 338*/
+* {
+    box-sizing: border-box;/*The total box size remains constant by altering the content size*/
+    /*border: 3px  solid coral;*/
+
+}
+
+body {
+
+    font-size: 12pt;
+    background-color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+}
+header,
+h1,
+#wrapper {
+    margin-top: 0;
+
+}   
+ 
+#service{
+    background-color:white;
+}
+h1 {
+    display: none;
+    text-align: center;
+    font-size: 14pt;
+    color: #996600;
+    padding: 0;
+    page-break-after: avoid;/*does not work*/
+    /*text-shadow: 3px 3px 3px #F4E8BC;*/
+}  
+
+h2,h3,h4,h5 {
+    color: #996600;
+    font-size: 12pt;
+    text-align: center;
+}
+
+
+#wrapper { 
+    display: flex;
+    flex-direction: row; 
+    width: 90%;
+    margin: auto;
+
+}
+
+#rightside{
+    display: none;
+    flex-direction:column; 
+    width: 100%;
+    margin: 0;
+    justify-content:center;
+    background-color: white;
+
+}
+
+#rightside h2 {
+    text-align: center;
+}
+#results {
+    background-color: navajowhite;
+    text-align: center;
+} 
+/*flex space distribution*/
+navleft { flex: 0; }
+main { flex: 10; }
+#rightside { flex:01;}
+
+
+nav,
+main,
+#rightside {
+    padding: 0 1em;
+}
+/*See exercise 11.6 for reference on nav and menus*/
+#navtop  {
+    display: none;
+    letter-spacing: 0.5em;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center; 
+    padding-right: 2em;
+    flex-wrap:wrap;/*use multiple lines*/
+
+}
+
+#navtop ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    padding-left: 0;
+}
+/*Hide due to drop down menu*/
+#navtop  ul ul {
+    position: absolute;
+    background-color:  #eff1f5;
+    padding: 0;
+    text-align: left;
+    display: none;
+}
+
+#navtop  ul ul li {
+    border: 1px solid navy;
+    display: block;/*occupy full width*/
+    width: 13em;
+    padding-left: 1em;
+    margin-left: 0; 
+}
+
+#navtop li { 
+    padding: 0.5em;
+    display: inline-block;/*allows to set a width and height on the element, does not add a line-break after, so it can sit next to other elements.*/
+}        
+#navtop  li:hover ul { 
+    display: block; 
+} 
+
+#navleft{
+    display: none;
+    /*position: fixed; Does not work, it covers other contents*/
+    letter-spacing: .5em;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: left; 
+    padding-right: 0em;
+    padding-left: 0em;
+    flex-wrap:wrap;
+    margin: 0;
+}
+
+#navleft ul {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /*center*/
+    margin: 0;
+    padding:2%;
+}
+#navleft  ul  li {
+
+    display: block;
+    width: auto;
+    padding-left: 0em;
+    margin: 0; 
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+nav ul {
+    list-style-type: none;
+    font-size: 1em;
+
+}
+
+nav a {
+
+    text-decoration: none;
+    transition: background-color 2s linear;
+}
+
+nav a:link {
+    color: #330000;
+}
+
+nav a:visited {
+    color: #003300;
+}
+
+nav a:hover {
+    color: #996600;
+    background-color: peachpuff
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5%;
+    align-self: center;
+    display: none;
+    margin: 0 0 0 0;
+
+}
+td img:hover {
+    transition :all .8s ease-in-out;
+    transform :scale(1.25);
+
+}
+figcaption {
+    padding: 5%;       
+    text-align: center;
+}   
+fieldset {
+    /*display:none;*/
+}
+footer {
+   page-break-after: always;;
+    display:none;
+    text-align: center;
+    font-size: 8pt;
+    font-style: italic;
+    /*color: 996600;*/
+    padding: 2.5%;
+}
+/*
+footer h5 {
+    background:white;
+}
+*/
+/*Support HTML5 elements in older browsers*/
+/*header,
+main,
+nav,
+footer,
+figure,
+figcaption {
+    display: block;
+}*/
+/*Home page navigation via image menus*/
+.menuimg{
+    flex-wrap:wrap;
+    max-width:225px;
+    height:168px;
+}
+.menuimg:hover{
+    transition :all .8s ease-in-out;
+    transform :scale(1.25);
+    opacity:0.25;
+}
+#home ul { 
+    list-style-type: none;
+}
+#home li { 
+    display: inline-block;
+    width: 250px;
+    padding-bottom: 10px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+#rightside img:hover {
+    transition :all .8s ease-in-out;
+    transform :scale(1.25);
+
+}
+tr:nth-child(even) {background:navajowhite}
+tr:nth-child(odd) {background: #FFF}
+
+
+#Terms p {
+    background-color: white;
+    font-size: 110%;
+}
+
+#video {
+    margin: 0;
+    padding: 0;
+}
+
+.feedback{
+    background-color: peachpuff;
+}
+
+
+
+
+
+
+
