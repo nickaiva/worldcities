@@ -7,13 +7,18 @@ input,
 option {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
+  
+  font-family: "Times New Roman", Times, serif;
+  font-size: 120%;
+}
+header {
   background-image: url(../img/vhp_img5720.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Times New Roman", Times, serif;
+  /*opacity: 0.9;*/
 }
-header,
 
 #wrapper {
   margin-top: 0;
@@ -304,6 +309,7 @@ tr:nth-child(odd) {
     height: auto;
     border-radius: 15%;
     align-self: center;
+    
   }
 }
 /*
