@@ -12,8 +12,9 @@
         <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             let countryPopulation = 0;
+           
             function getCountryID() {
-                if (!document.getElementById)//does it support javascript?
+                if (!document.getElementById)//does it not support javascript?
                     return;
 
                 let country_ID = document.getElementById("country_id");
@@ -35,7 +36,7 @@
                  https://www.youtube.com/watch?v=HRV2zEIMBqU */
                 $("#country_id").change(function () {
                     let aid = $("#country_id").val();
-                     
+                    const $details = $('#details');
                     $.ajax({
                         url: 'data.php',
                         method: 'post',
@@ -44,6 +45,7 @@
                         // console.log(city);
                         city = JSON.parse(city);
                         $('#city').empty();
+                        $details.empty();
                         city.forEach(function (city) {
 
                             $('#city').append('<option value=' + city.id + '>' + city.id + " " + city.city_ascii + " " + city.population + '</option>');
@@ -63,14 +65,17 @@
                     }).done(function (city) {
                         //console.log(city);
                         city = JSON.parse(city);
-                      
-                        $('#details').empty();
-                        $('#details').append("<p> Χώρα Country: " + city.country + " <p>Κωδικός ISO3: " + city.iso3 + "<p> Πόλη City: " + city.city_ascii +
+                        const $details = $('#details');
+
+                        $details.empty();
+                         
+                        /*$('#details').empty();*/
+                        $(details).append("<p> Χώρα Country: " + city.country + " <p>Κωδικός ISO3: " + city.iso3 + "<p> Πόλη City: " + city.city_ascii +
                         "<p> Περιοχή Region: " + city.region + "<p> Πληθυσμός Population: " + city.population  + "<p> Ποσοστό επί συνολικού πληθυσμού Percentage of total population:  " /*+ Number.parseFloat(city.population*100/countryPopulation).toFixed(2)*/
                        +  city.percentage +" % <p>Long. " + city.lng + "<p> Lat. " + city.lat + "</p>");
                       
                         $('#map').empty();
-                        $('#map').append("<iframe width='100%' height='auto'  src='https://maps.google.com/maps?q=" + city.lat + ',' + city.lng + "&hl=en&z=14&amp;output=embed' </iframe>");
+                        $('#map').append("<iframe width='100%' height='auto' scrolling='yes' src='https://maps.google.com/maps?q=" + city.lat + ',' + city.lng + "&hl=en&z=14&amp;output=embed&z=10' </iframe>");
                     })
                 })//end of city change function
             })
@@ -96,6 +101,7 @@
                                             <label for="country_id">Επιλέξτε την  χώρα: <br/>Select the country you wish:</label>
                                         </p>
                                         <p>  
+                                        <!--input list="country_id" id="country_id" name="country_id" /-->
                                             <select type="number" name="country_id"  required id="country_id" onChange="getCountryID();" size="" max='1'>
                                                 <option selected value="" disabled>Select from list  below </option>/*<?php echo isset($_POST['id']) ? $_POST['id'] : '0' ?>*/
                                                 <?php
