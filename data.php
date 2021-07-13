@@ -2,13 +2,13 @@
 
 require_once 'dbconnect.php';
 $total;
-$SID;
+$countryID;
 $db = new DbConnect;
 $conn = $db->connect();
 
-if (isset($_POST['aid'])) {
+if (isset($_POST['countryID'])) {
 
-    $SID = $_POST['aid']; //
+    $countryID = $_POST['countryID']; //
    
     $stmt = $conn->prepare("SELECT  
                                     cities.aa,
@@ -22,7 +22,7 @@ if (isset($_POST['aid'])) {
 		                               
     FROM      countries,cities
      WHERE  cities.country_iso3 = countries.iso3
-     AND cities.country_iso3 = '$SID'
+     AND cities.country_iso3 = '$countryID'
      ORDER BY city_ascii
      LIMIT 7500 "
     );
@@ -42,10 +42,10 @@ if (isset($_POST['city'])) {
                                  cities.city_ascii as city_ascii ,
                                  countries.country as country,        
                                  countries.iso3 as iso3,
-		 cities.population as population,
-                                 cities.lng,
+		                            cities.population as population,
+                                cities.lng,
                                 cities.lat,
-		cities.admin_name as region,
+	                              cities.admin_name as region,
                                  total, IFNULL(population*100/total,0) percentage
                               
     FROM 
